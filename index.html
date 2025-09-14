@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nura's Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;700&family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <a href="#" class="logo">PORT<span>FOLIO</span></a>
+      <div class="nav-links">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="https://nurarestaurant.netlify.app" class="nav-link">Projects</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <!-- Hamburger Icon -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>CODE THE FUTURE WITH NURA</h1>
+            <h2 id="typewriter">I'm a <span id="typed-text"></span></h2>
+
+            <p>
+              I create immersive digital experiences that blend cutting-edge
+              technology with stunning visuals. My passion is turning complex
+              ideas into intuitive interfaces that captivate users and push
+              boundaries.
+            </p>
+            <div class="btn-group">
+              <a href="https://nurarestaurant.netlify.app" class="btn btn-primary">
+                <i class="fa-solid fa-rocket"></i> View Projects
+              </a>
+              <a href="wa.me/919361683058" class="btn">
+                <i class="fa-solid fa-paper-plane"></i> Contact Me
+              </a>
+            </div>
+          </div>
+          <div class="profile-container">
+            <div class="profile-wrapper">
+              <img
+                src="/images/myphoto.png"
+                alt="profile"
+                class="profile-img"
+              />
+              <div class="glow-effect"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="about-text">
+          I'm Nura, a passionate Front-End Developer with a love for crafting
+          visually stunning, user-focused digital interfaces. I specialize in
+          modern web technologies and love pushing boundaries to create
+          interactive and responsive websites that delight users.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-tabs">
+          <button class="tab-btn active" data-tab="frontend">Frontend</button>
+          <button class="tab-btn" data-tab="tools">Tools</button>
+        </div>
+        <div class="skills-content">
+          <div class="tab-content" id="frontend">
+            <div class="skills-grid">
+              <div class="skill-box">HTML5</div>
+              <div class="skill-box">CSS3</div>
+              <div class="skill-box">JavaScript</div>
+            </div>
+          </div>
+          <div class="tab-content" id="tools">
+            <div class="skills-grid">
+              <div class="skill-box">Git</div>
+              <div class="skill-box">VS Code</div>
+              <div class="skill-box">Figma</div>
+              <div class="skill-box">Terminal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <h2 class="section-title">Contact Me</h2>
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/your-form-id"
+          method="POST"
+        >
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input
+            type="email"
+            name="_replyto"
+            placeholder="Your Email"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            rows="5"
+            required
+          ></textarea>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">NURA<span>DEV</span></div>
+          <p class="footer-text">
+            Creating digital experiences that illuminate the future of web
+            development
+          </p>
+          <div class="social-links">
+            <a href="https://github.com/Nura730" class="social-link"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+            <a href="www.linkedin.com/in/arun-shanmugavel-a6249b321" class="social-link"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+            <a href="https://www.instagram.com/itz._.nura._.7/#" class="social-link"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="#" class="social-link"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+          </div>
+          <p class="copyright">
+            &copy; 2025 Nura Portfolio. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
