@@ -1,0 +1,25 @@
+{
+  "name": "nura-portfolio",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "framer-motion": "^12.25.0",
+    "gsap": "^3.14.2",
+    "lucide-react": "^0.562.0",
+    "next": "^14.x",
+    "react": "^18.x",
+    "react-dom": "^18.x"
+  },
+  "devDependencies": {
+    "@types/node": "25.0.3",
+    "@types/react": "19.2.7",
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "5.9.3"
+  }
+}
