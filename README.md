@@ -47,25 +47,9 @@ Showcases my skills, projects, journey, and learning path in cybersecurity & web
 ## 🚀 Live Demo
 
 ```
-https://your-live-link.com
+https://nuraportfolio.vercel.app
 ```
 
----
-
-## ⚙ Installation & Setup
-
-```bash
-git clone https://github.com/Nura730/portfolio.git
-cd portfolio
-npm install
-npm run dev
-```
-
-Open in browser:
-
-```
-http://localhost:3000
-```
 
 ---
 
@@ -73,14 +57,6 @@ http://localhost:3000
 
 - 📍 Tamil Nadu, India  
 - 📧 arunshanmugavel12@gmail.com  
-- 🔗 GitHub  
-- 🔗 LinkedIn  
-
----
-
-## 📸 Preview
-
-(Add screenshots here later)
 
 ---
 
