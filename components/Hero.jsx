@@ -117,7 +117,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* PHOTO */}
+      
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}

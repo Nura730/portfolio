@@ -56,7 +56,6 @@ export default function Contact() {
         shadow-[0_0_40px_rgba(99,102,241,0.15)]
       ">
 
-        {/* LEFT */}
         <div className="space-y-5">
 
           <span className="

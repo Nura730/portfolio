@@ -4,6 +4,16 @@ import { ExternalLink, Github, Star } from "lucide-react";
 
 const projects = [
   {
+    name: "Expense Tracker App",
+    desc: "Simple Android app for Track Expenses.",
+    tech: "Kotlin",
+    role: "Fully developed by me",
+    github: "https://github.com/Nura730/MyExpenseTracker",
+    tag: "Android App",
+    featured: true,
+    image: "/projects/app.png",
+  },
+  {
     name: "Restaurant Web App",
     desc: "Advanced menu filtering system that helps users easily search and explore food items.",
     tech: "HTML · CSS · JavaScript",
