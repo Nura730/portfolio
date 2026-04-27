@@ -10,7 +10,7 @@ body {
   background: radial-gradient(circle at top left, #020617 0%, #020617 40%, #000 100%);
 }
 
-/* Reveal animation (same as HTML) */
+/* Reveal animation */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -101,7 +101,7 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-/* Disable heavy animations on mobile */
+
 @media (max-width: 768px) {
   * {
     animation: none !important;
