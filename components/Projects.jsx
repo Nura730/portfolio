@@ -4,6 +4,17 @@ import { ExternalLink, Github, Star } from "lucide-react";
 
 const projects = [
   {
+    name: "Nura OS",
+    desc: "A Fully Customized Web APP With AI for personal tracker, TODO list, Expenses Tracker",
+    tech: "React, MySQL, JavaScript",
+    role: "Fully developed by me",
+    live: "https://nuraos-beta.vercel.app",
+    github: "https://github.com/Nura730/Nura_OS",
+    tag: "Web App",
+    featured: true,
+    image: "/projects/nuraos.png",
+  },
+  {
     name: "Expense Tracker App",
     desc: "Simple Android app for Track Expenses.",
     tech: "Kotlin",
