@@ -117,7 +117,6 @@ export default function Hero() {
           </div>
         </motion.div>
 
-      
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -139,16 +138,15 @@ export default function Hero() {
             "
           >
             <img
-  src="/profile.jpg"
-  alt="Nura profile photo"
-  className="
+              src="/public/myprofilepicforportfolio.png"
+              alt="Nura profile photo"
+              className="
     h-full w-full object-cover
     rounded-full
     border-4 border-indigo-400/40
     shadow-[0_0_40px_rgba(99,102,241,0.5)]
   "
-/>
-
+            />
           </div>
         </motion.div>
       </div>
