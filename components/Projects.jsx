@@ -4,6 +4,17 @@ import { ExternalLink, Github, Star } from "lucide-react";
 
 const projects = [
   {
+    name: "FIRO",
+    desc: "A Fully Customized Web APP For Managing Room Expenses",
+    tech: "React, MySQL, Typescripy",
+    role: "Fully developed by me",
+    live: "https://firo-two.vercel.app",
+    github: "https://github.com/Nura730/FIRO",
+    tag: "Web App",
+    featured: true,
+    image: "/projects/Firo.png",
+  },
+  {
     name: "Nura OS",
     desc: "A Fully Customized Web APP With AI for personal tracker, TODO list, Expenses Tracker",
     tech: "React, MySQL, JavaScript",
