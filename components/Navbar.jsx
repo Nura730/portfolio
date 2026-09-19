@@ -1,128 +1,26 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
-import {
-  Home,
-  Target,
-  Map,
-  Briefcase,
-  Zap,
-  Shield,
-  Award,
-  Mail
-} from "lucide-react";
+import { useEffect, useState } from "react";
+import { Command, ArrowUpRight } from "lucide-react";
 
 const links = [
-  { id: "hero", label: "Home", icon: Home },
-  { id: "focus", label: "Focus", icon: Target },
-  { id: "journey", label: "Journey", icon: Map },
-  { id: "projects", label: "Projects", icon: Briefcase },
-  { id: "skills", label: "Skills", icon: Zap },
-  { id: "labs", label: "Labs", icon: Shield },
-  { id: "certifications", label: "Certificate", icon: Award },
-  { id: "contact", label: "Contact", icon: Mail },
+  { id: "work", label: "Work" },
+  { id: "about", label: "About" },
+  { id: "lab", label: "Lab" },
+  { id: "contact", label: "Contact" },
 ];
 
 export default function Navbar() {
-  const [active, setActive] = useState("hero");
-  const scrollRef = useRef(null);
-
+  const [active, setActive] = useState("work");
   useEffect(() => {
-    const onScroll = () => {
-      links.forEach(({ id }) => {
-        const el = document.getElementById(id);
-        if (!el) return;
-
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= 150 && rect.bottom >= 150) {
-          setActive(id);
-
-          // AUTO SCROLL MOBILE NAV
-          const navItem = document.getElementById(`nav-${id}`);
-          if (navItem && scrollRef.current) {
-            navItem.scrollIntoView({
-              behavior: "smooth",
-              inline: "center",
-            });
-          }
-        }
-      });
-    };
-
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const observer = new IntersectionObserver((entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)), { rootMargin: "-45% 0px -45% 0px" });
+    links.forEach(({ id }) => { const el = document.getElementById(id); if (el) observer.observe(el); });
+    return () => observer.disconnect();
   }, []);
-
-  return (
-    <>
-      {/* DESKTOP NAV */}
-      <nav className="hidden md:flex fixed top-5 left-1/2 -translate-x-1/2 z-50">
-        <div
-          className="
-            flex gap-5 px-6 py-3
-            rounded-full
-            bg-white/10 backdrop-blur-none md:backdrop-blur-xl
-            border border-white/20
-            shadow-lg
-          "
-        >
-          {links.map(({ id, label }) => (
-            <a
-              key={id}
-              href={`#${id}`}
-              className={`
-                text-sm transition-all
-                ${
-                  active === id
-                    ? "text-indigo-400 font-medium"
-                    : "text-slate-300 hover:text-white"
-                }
-              `}
-            >
-              {label}
-            </a>
-          ))}
-        </div>
-      </nav>
-
-      {/* MOBILE NAV */}
-      <div
-        className="
-          fixed bottom-0 left-0 right-0 z-50
-          md:hidden
-          bg-white/10 backdrop-blur-none md:backdrop-blur-xl
-          border-t border-white/20
-        "
-      >
-        <div
-          ref={scrollRef}
-          className="
-            flex gap-6 px-4 py-3
-            overflow-x-auto scroll-smooth
-            no-scrollbar
-          "
-        >
-          {links.map(({ id, label, icon: Icon }) => (
-            <a
-              key={id}
-              id={`nav-${id}`}
-              href={`#${id}`}
-              className={`
-                flex flex-col items-center
-                text-[11px] min-w-[64px]
-                transition-all
-                ${
-                  active === id
-                    ? "text-indigo-400 scale-110"
-                    : "text-slate-400"
-                }
-              `}
-            >
-              <Icon size={18} />
-              {label}
-            </a>
-          ))}
-        </div>
-      </div>
-    </>
-  );
+  return <header className="fixed left-1/2 top-4 z-50 w-[calc(100%-24px)] max-w-5xl -translate-x-1/2">
+    <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-black/50 px-3 py-2 backdrop-blur-xl shadow-2xl shadow-black/30">
+      <a href="#work" className="flex items-center gap-2 px-2 py-1 text-sm font-semibold tracking-tight"><span className="grid h-8 w-8 place-items-center rounded-xl border border-white/10 bg-white/[.04] font-mono">N/</span><span>Nura</span></a>
+      <nav className="hidden items-center gap-1 sm:flex">{links.map(({ id, label }) => <a key={id} href={"#" + id} className={"rounded-xl px-3 py-2 text-xs transition " + (active === id ? "bg-white/[.08] text-white" : "text-white/50 hover:text-white")}>{label}</a>)}</nav>
+      <div className="flex items-center gap-2"><button onClick={() => window.dispatchEvent(new Event("open-command"))} aria-label="Open command menu" className="grid h-9 w-9 place-items-center rounded-xl border border-white/10 bg-white/[.04] text-white/60 hover:text-white"><Command size={15}/></button><a href="#contact" className="hidden sm:inline-flex items-center gap-1 rounded-xl bg-white px-3 py-2 text-xs font-semibold text-black">Start a conversation <ArrowUpRight size={13}/></a></div>
+    </div>
+  </header>;
 }
