@@ -8,8 +8,23 @@ const projects = [
   { n:"03", name:"Log Management System", type:"Automation · Team operations", desc:"A practical team operations system for attendance, task assignment, internal communication, and reminders.", tech:["Apps Script","n8n","JavaScript"], image:"/projects/logsystem.png", live:"https://invodes-log-system.vercel.app", code:"https://github.com/Nura730/Invodes-Log-System" },
   { n:"04", name:"Restaurant Web App", type:"Web · Discovery & filtering", desc:"A restaurant experience with menu filtering designed to help visitors quickly explore and find dishes.", tech:["HTML","CSS","JavaScript"], image:"/projects/restaurant.png", live:"https://nurarestaurant.netlify.app/", code:"https://github.com/Nura730/Restaurant" },
   { n:"05", name:"Naval Portfolio", type:"Client work · Portfolio", desc:"A personal website created to present a marine student's profile, work, and skills with clarity.", tech:["HTML","Tailwind","JavaScript"], image:"/projects/naval.png", live:"https://sasikumar-naval-portfolio.netlify.app/", code:"https://github.com/Nura730/naval-portfolio" },
-  { n:"06", name:"Professional Portfolio", type:"Client work · Career", desc:"A job-focused portfolio experience built to help a professional communicate their background and capabilities.", tech:["HTML","Tailwind","JavaScript"], image:"/projects/pro.png", live:"https://anandperumal-portfolio.vercel.app/", code:"https://github.com/Nura730/professional-portfolio" },
+  { n:"06", name:"Expense Tracker App", type:"Android · Personal finance", desc:"A lightweight Android app for recording and keeping track of everyday expenses.", tech:["Kotlin"], image:"/projects/app.png", code:"https://github.com/Nura730/MyExpenseTracker" },
+  { n:"07", name:"Professional Portfolio", type:"Client work · Career", desc:"A job-focused portfolio experience built to help a professional communicate their background and capabilities.", tech:["HTML","Tailwind","JavaScript"], image:"/projects/pro.png", live:"https://anandperumal-portfolio.vercel.app/", code:"https://github.com/Nura730/professional-portfolio" },
 ];
+
+const labs = [
+ ["Linux Practice","Commands, permissions, users, processes, and system navigation.","Beginner"],
+ ["TryHackMe Labs","Learning cybersecurity fundamentals, basic attack paths, and defense concepts.","Beginner"],
+ ["Python Scripts","Writing small automation and utility scripts to improve problem solving.","Learning"],
+ ["Automation Workflows","Building practical workflows with n8n and Google Apps Script.","Intermediate"]
+];
+
+const milestones = [
+ ["Building with Artificial Intelligence","Saylor.org","Completed","https://drive.google.com/file/d/1ZLK0CS_ric6l8SFMp2nEaK_TpGtwyU6B/view?usp=sharing"],
+ ["Cybersecurity Fundamentals","Self learning","Currently learning",""],
+ ["Linux Basics","Self practice","Currently learning",""]
+];
+const planned = ["TryHackMe Learning Paths","Python Automation Certification","Networking Fundamentals","Ethical Hacking Basics"];
 
 const journey = [
  ["2022","The first web experiments","Started learning HTML and CSS, building small layouts and exploring how the web works."],
@@ -23,7 +38,7 @@ function Eyebrow({children}) { return <p className="eyebrow">{children}</p>; }
 export default function Page() {
  return <main>
    <nav className="nav-pill" aria-label="Main navigation">
-     <a href="#top">NURA®</a><a href="#work">Work</a><a href="#about">About</a><a href="#journey">Journey</a><a href="#contact">Contact ↗</a>
+     <a href="#top">NURA®</a><a href="#work">Work</a><a href="#about">About</a><a href="#journey">Journey</a><a href="#labs">Practice</a><a href="#contact">Contact ↗</a>
    </nav>
    <header id="top" className="site-shell">
     <div className="hero-grid">
@@ -77,13 +92,22 @@ export default function Page() {
     </div>
    </section>
 
+   <section id="labs" className="site-shell section-pad">
+    <div className="section-heading"><div><Eyebrow>04 / Curiosity in practice</Eyebrow><h2 className="section-title" style={{marginTop:18}}>Learning by doing.</h2></div><p className="hero-copy" style={{maxWidth:330,fontSize:13}}>A snapshot of the skills and systems I’m actively exploring. Progress is a practice, not a percentage.</p></div>
+    <div className="skill-grid" style={{gridTemplateColumns:"repeat(2,1fr)"}}>{labs.map(([title,desc,level])=><div className="skill-cell" key={title}><span>{level.toUpperCase()} / PRACTICE</span><strong style={{fontFamily:"Manrope",fontSize:18,letterSpacing:"-.04em"}}>{title}</strong><p className="project-desc" style={{marginTop:10}}>{desc}</p></div>)}</div>
+    <div style={{paddingTop:70}}><Eyebrow>Learning milestones</Eyebrow><h3 className="section-title" style={{fontSize:"clamp(30px,4vw,48px)",marginTop:14,marginBottom:28}}>Proof of progress.</h3>
+     <div className="journey-list">{milestones.map(([title,platform,status,link])=><div className="journey-item" key={title}><span className="eyebrow">{status}</span><h4 style={{fontFamily:"Manrope",fontSize:16,margin:0}}>{title}</h4><p>{platform}{link ? <> · <a href={link} target="_blank" rel="noreferrer" style={{textDecoration:"underline"}}>View certificate ↗</a></> : null}</p></div>)}</div>
+     <p className="eyebrow" style={{marginTop:28}}>Next up · {planned.join(" · ")}</p>
+    </div>
+   </section>
+
    <section id="journey" className="site-shell section-pad">
-    <div className="section-heading"><div><Eyebrow>04 / The journey</Eyebrow><h2 className="section-title" style={{marginTop:18}}>A work in progress.</h2></div></div>
+    <div className="section-heading"><div><Eyebrow>05 / The journey</Eyebrow><h2 className="section-title" style={{marginTop:18}}>A work in progress.</h2></div></div>
     <div className="journey-list">{journey.map(([year,title,desc])=><div className="journey-item" key={year}><span className="eyebrow">{year}</span><h3 style={{fontFamily:"Manrope",fontSize:18,letterSpacing:"-.04em",margin:0}}>{title}</h3><p>{desc}</p></div>)}</div>
    </section>
 
    <section id="contact" className="site-shell">
-    <div className="contact-panel"><div><Eyebrow>05 / Have a good one in mind?</Eyebrow><h2 className="section-title" style={{marginTop:25}}>Let’s make<br/>something useful.</h2><p style={{marginTop:24,maxWidth:440,lineHeight:1.8}}>I’m open to internships, freelance projects, collaborations, and conversations about technology.</p></div><div><a className="btn-dark" style={{background:"var(--accent)",color:"var(--ink)"}} href="mailto:arunshanmugavel12@gmail.com">Start a conversation <ArrowUpRight size={16}/></a><p style={{fontSize:12,marginTop:22}}>arunshanmugavel12@gmail.com</p><div style={{display:"flex",gap:18,marginTop:17}}><a href="https://github.com/Nura730" target="_blank" rel="noreferrer"><Github size={18}/></a><a href="https://www.linkedin.com/in/arun-shanmugavel-a6249b321" target="_blank" rel="noreferrer"><Linkedin size={18}/></a></div></div></div>
+    <div className="contact-panel"><div><Eyebrow>06 / Have a good one in mind?</Eyebrow><h2 className="section-title" style={{marginTop:25}}>Let’s make<br/>something useful.</h2><p style={{marginTop:24,maxWidth:440,lineHeight:1.8}}>I’m open to internships, freelance projects, collaborations, and conversations about technology.</p></div><div><a className="btn-dark" style={{background:"var(--accent)",color:"var(--ink)"}} href="mailto:arunshanmugavel12@gmail.com">Start a conversation <ArrowUpRight size={16}/></a><p style={{fontSize:12,marginTop:22}}>arunshanmugavel12@gmail.com</p><div style={{display:"flex",gap:18,marginTop:17}}><a href="https://github.com/Nura730" target="_blank" rel="noreferrer"><Github size={18}/></a><a href="https://www.linkedin.com/in/arun-shanmugavel-a6249b321" target="_blank" rel="noreferrer"><Linkedin size={18}/></a></div></div></div>
    </section>
    <footer className="site-shell"><div className="footer-row"><span>© {new Date().getFullYear()} Nura · Made with intent.</span><span>Curiosity over comfort.</span><a href="#top">Back to top ↑</a></div></footer>
  </main>;
