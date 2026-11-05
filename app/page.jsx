@@ -45,7 +45,7 @@ export default function Page() {
      <div>
       <div className="availability" style={{marginBottom:22}}>Open to Internships, Freelance & Collaborations</div>
       <Eyebrow>Developer · Automation builder · Security learner</Eyebrow>
-      <h1 className="display hero-title" style={{margin:"30px 0"}}>Curious by nature.<br/> <span className="highlight">Builder</span> by choice.</h1>
+      <h1 className="display hero-title" style={{margin:"30px 0"}}>Building<br/><span className="highlight">Digital Products</span>,<br/>Intelligent<br/>Automations &amp;<br/>Secure Systems.</h1>
       <p className="hero-copy">I’m Nura — a Computer Science student who enjoys turning ideas into useful digital products, thoughtful web experiences, and practical automations.</p>
       <div style={{display:"flex",alignItems:"center",gap:24,flexWrap:"wrap",marginTop:34}}>
        <a className="btn-dark" href="#work">Explore selected work <ArrowDownRight size={16}/></a>
