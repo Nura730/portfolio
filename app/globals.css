@@ -26,7 +26,7 @@ img { display: block; max-width: 100%; }
 .hero-copy { max-width:500px; color:#686a64; font-size:16px; line-height:1.8; }
 .profile-frame { position:relative; width:min(100%,380px); margin-left:auto; }
 .profile-frame:before { content:''; position:absolute; inset:16px -16px -16px 16px; background:var(--accent); border-radius:3px; }
-.profile-frame img { position:relative; width:100%; aspect-ratio:4/5; object-fit:cover; filter:saturate(.78); }
+.profile-frame img { position:relative; width:100%; aspect-ratio:4/5; object-fit:cover; object-position:64% center; filter:saturate(.88); }
 .availability { display:inline-flex; align-items:center; gap:9px; border:1px solid var(--line); padding:9px 13px; border-radius:99px; font:11px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.06em; }
 .availability:before { content:''; width:7px; height:7px; border-radius:50%; background:#739d39; box-shadow:0 0 0 4px #739d3922; }
 .btn-dark { display:inline-flex; align-items:center; gap:18px; background:var(--ink); color:#fff; padding:16px 21px; font-size:13px; transition:transform .2s,background .2s; }
