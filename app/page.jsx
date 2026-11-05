@@ -3,13 +3,55 @@
 import { ArrowDownRight, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 
 const projects = [
-  { n:"01", name:"FIRO", type:"Product · Expense management", desc:"A shared-expense web app built to make room and group spending easier to track, understand, and manage.", tech:["React","TypeScript","MySQL"], image:"/projects/Firo.png", live:"https://firo-two.vercel.app", code:"https://github.com/Nura730/FIRO" },
-  { n:"02", name:"Nura OS", type:"Product · Personal workspace", desc:"A personal workspace bringing together tasks, expense tracking, and AI-assisted productivity in one place.", tech:["React","JavaScript","MySQL"], image:"/projects/nuraos.png", live:"https://nuraos-beta.vercel.app", code:"https://github.com/Nura730/Nura_OS" },
-  { n:"03", name:"Log Management System", type:"Automation · Team operations", desc:"A practical team operations system for attendance, task assignment, internal communication, and reminders.", tech:["Apps Script","n8n","JavaScript"], image:"/projects/logsystem.png", live:"https://invodes-log-system.vercel.app", code:"https://github.com/Nura730/Invodes-Log-System" },
-  { n:"04", name:"Restaurant Web App", type:"Web · Discovery & filtering", desc:"A restaurant experience with menu filtering designed to help visitors quickly explore and find dishes.", tech:["HTML","CSS","JavaScript"], image:"/projects/restaurant.png", live:"https://nurarestaurant.netlify.app/", code:"https://github.com/Nura730/Restaurant" },
-  { n:"05", name:"Naval Portfolio", type:"Client work · Portfolio", desc:"A personal website created to present a marine student's profile, work, and skills with clarity.", tech:["HTML","Tailwind","JavaScript"], image:"/projects/naval.png", live:"https://sasikumar-naval-portfolio.netlify.app/", code:"https://github.com/Nura730/naval-portfolio" },
-  { n:"06", name:"Expense Tracker App", type:"Android · Personal finance", desc:"A lightweight Android app for recording and keeping track of everyday expenses.", tech:["Kotlin"], image:"/projects/app.png", code:"https://github.com/Nura730/MyExpenseTracker" },
-  { n:"07", name:"Professional Portfolio", type:"Client work · Career", desc:"A job-focused portfolio experience built to help a professional communicate their background and capabilities.", tech:["HTML","Tailwind","JavaScript"], image:"/projects/pro.png", live:"https://anandperumal-portfolio.vercel.app/", code:"https://github.com/Nura730/professional-portfolio" },
+  {
+    n:"01",
+    name:"MediOrchestra",
+    type:"Healthcare · Hospital operations",
+    desc:"A role-based hospital command system connecting patients, care teams, and operating theatres. It brings together live request workflows, capacity forecasting, surge simulation, and an ICU-risk model.",
+    tech:["React","Node.js","PostgreSQL","Socket.IO","LightGBM"],
+    visual:"hospital",
+    visualLabel:"MEDIORCHESTRA",
+    visualCode:"CARE / FLOW",
+    visualKicker:"HOSPITAL COMMAND SYSTEM",
+    visualTitle:"Care teams, in sync.",
+    visualChips:["5 role workspaces","ICU risk model","Capacity outlook"],
+    visualFooter:"Patient flow · OT coordination · Forecasting",
+    live:"https://hospital-orchestrator-phi.vercel.app",
+    code:"https://github.com/Nura730/hospital-orchestrator"
+  },
+  {
+    n:"02",
+    name:"Everest Textile Mills",
+    type:"Industry · Manufacturing operations",
+    desc:"An end-to-end textile mill platform connecting yarn inventory, order planning, production, machine operations, quality checks, dispatch, invoicing, and costing—with offline sync and live updates.",
+    tech:["React","Node.js","MongoDB","Socket.IO","Dexie"],
+    visual:"everest",
+    visualLabel:"EVEREST TEXTILE MILLS",
+    visualCode:"MILL / OPS",
+    visualKicker:"MANUFACTURING OPERATIONS",
+    visualTitle:"From yarn to dispatch.",
+    visualChips:["Inventory & orders","Production & QC","Costing & audit"],
+    visualFooter:"17 documented implementation phases",
+    live:"https://everest-textile-mills.vercel.app",
+    code:"https://github.com/Nura730/everest_textile_mills"
+  },
+  {
+    n:"03",
+    name:"NeerWatch",
+    type:"Public welfare · Environmental monitoring",
+    desc:"An offline-first water-quality monitoring prototype for field teams to record household tests, synchronize observations when connected, detect location-based clusters, and surface ward-level alerts.",
+    tech:["React","Node.js","MongoDB","Leaflet","Dexie"],
+    visual:"neerwatch",
+    visualLabel:"NEERWATCH",
+    visualCode:"FIELD / SIGNAL",
+    visualKicker:"WATER QUALITY MONITORING",
+    visualTitle:"Local signals. Clearer action.",
+    visualChips:["Offline-first capture","Spatial clusters","Ward-level alerts"],
+    visualFooter:"Prototype · Synthetic demonstration data",
+    note:"Prototype data is synthetic and is not a record of real-world water quality.",
+    live:"https://neerwatch.vercel.app",
+    code:"https://github.com/Nura730/neerwatch"
+  }
 ];
 
 const labs = [
@@ -63,10 +105,14 @@ export default function Page() {
    </header>
 
    <section id="work" className="site-shell section-pad">
-    <div className="section-heading"><div><Eyebrow>01 / Selected work</Eyebrow><h2 className="section-title" style={{marginTop:18}}>Things I’ve<br/>put into the world.</h2></div><p className="hero-copy" style={{maxWidth:330,fontSize:13}}>A selection of products, experiments, and client work. Each one started with a problem worth solving.</p></div>
+    <div className="section-heading"><div><Eyebrow>01 / Selected work</Eyebrow><h2 className="section-title" style={{marginTop:18}}>Things I’ve<br/>put into the world.</h2></div><p className="hero-copy" style={{maxWidth:330,fontSize:13}}>Three systems built around real workflows—from hospital coordination to manufacturing operations and field-level monitoring.</p></div>
     <div>{projects.map(p=><article className="project-row" key={p.n}>
-     <a className="project-image" href={p.live||p.code} target="_blank" rel="noreferrer"><img src={p.image} alt={p.name+" preview"}/></a>
-     <div><span className="project-number">{p.n} / {p.type}</span><h3 className="project-name">{p.name}</h3><p className="project-desc">{p.desc}</p><div>{p.tech.map(t=><span className="tag" key={t}>{t}</span>)}</div><div>{p.live ? <a className="text-link" href={p.live} target="_blank" rel="noreferrer">Visit project <ArrowUpRight size={14}/></a> : null}<a className="text-link" href={p.code} target="_blank" rel="noreferrer">Source code <Github size={14}/></a></div></div>
+     <a className={`project-image project-art project-art--${p.visual}`} href={p.live||p.code} target="_blank" rel="noreferrer" aria-label={`Open ${p.name} project`}>
+      <div className="project-art-top"><span>{p.visualLabel}</span><span>{p.visualCode}</span></div>
+      <div className="project-art-mid"><span className="project-art-kicker">{p.visualKicker}</span><h3 className="project-art-title">{p.visualTitle}</h3><div className="project-art-chips">{p.visualChips.map(t=><span key={t}>{t}</span>)}</div></div>
+      <div className="project-art-footer"><span>{p.visualFooter}</span><ArrowUpRight size={18}/></div>
+     </a>
+     <div><span className="project-number">{p.n} / {p.type}</span><h3 className="project-name">{p.name}</h3><p className="project-desc">{p.desc}</p>{p.note ? <p className="project-note">{p.note}</p> : null}<div>{p.tech.map(t=><span className="tag" key={t}>{t}</span>)}</div><div><a className="text-link" href={p.live} target="_blank" rel="noreferrer">Open project <ArrowUpRight size={14}/></a><a className="text-link" href={p.code} target="_blank" rel="noreferrer">Source code <Github size={14}/></a></div></div>
     </article>)}</div>
    </section>
 
