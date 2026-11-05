@@ -56,7 +56,7 @@ export default function Page() {
        <a href="mailto:arunshanmugavel12@gmail.com" aria-label="Email"><Mail size={19}/></a>
       </div>
      </div>
-     <div className="profile-frame"><img src="/myprofilepicforportfolio.png" alt="Portrait of Nura"/></div>
+     <div className="profile-frame"><img src="/arun-profile.webp" alt="Portrait of Nura"/></div>
     </div>
     <div className="intro-strip"><span>Based in Tamil Nadu, India</span><span>Frontend · Automation · Cybersecurity</span><span>Open to internships & collaborations ↗</span></div>
    </header>
