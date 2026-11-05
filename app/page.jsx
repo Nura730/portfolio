@@ -65,7 +65,7 @@ export default function Page() {
     <div className="section-heading"><div><Eyebrow>01 / Selected work</Eyebrow><h2 className="section-title" style={{marginTop:18}}>Things I’ve<br/>put into the world.</h2></div><p className="hero-copy" style={{maxWidth:330,fontSize:13}}>A selection of products, experiments, and client work. Each one started with a problem worth solving.</p></div>
     <div>{projects.map(p=><article className="project-row" key={p.n}>
      <a className="project-image" href={p.live||p.code} target="_blank" rel="noreferrer"><img src={p.image} alt={p.name+" preview"}/></a>
-     <div><span className="project-number">{p.n} / {p.type}</span><h3 className="project-name">{p.name}</h3><p className="project-desc">{p.desc}</p><div>{p.tech.map(t=><span className="tag" key={t}>{t}</span>)}</div><div><a className="text-link" href={p.live} target="_blank" rel="noreferrer">Visit project <ArrowUpRight size={14}/></a><a className="text-link" href={p.code} target="_blank" rel="noreferrer">Source code <Github size={14}/></a></div></div>
+     <div><span className="project-number">{p.n} / {p.type}</span><h3 className="project-name">{p.name}</h3><p className="project-desc">{p.desc}</p><div>{p.tech.map(t=><span className="tag" key={t}>{t}</span>)}</div><div>{p.live ? <a className="text-link" href={p.live} target="_blank" rel="noreferrer">Visit project <ArrowUpRight size={14}/></a> : null}<a className="text-link" href={p.code} target="_blank" rel="noreferrer">Source code <Github size={14}/></a></div></div>
     </article>)}</div>
    </section>
 
