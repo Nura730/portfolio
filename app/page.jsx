@@ -38,11 +38,12 @@ function Eyebrow({children}) { return <p className="eyebrow">{children}</p>; }
 export default function Page() {
  return <main>
    <nav className="nav-pill" aria-label="Main navigation">
-     <a href="#top">NURA®</a><a href="#work">Work</a><a href="#about">About</a><a href="#journey">Journey</a><a href="#labs">Practice</a><a href="#contact">Contact ↗</a>
+     <a href="#top" style={{fontFamily:"Manrope",fontWeight:800,letterSpacing:".12em"}}>ARUN</a><a href="#work">Work</a><a href="#about">About</a><a href="#journey">Journey</a><a href="#labs">Practice</a><a href="#contact">Contact ↗</a>
    </nav>
    <header id="top" className="site-shell">
     <div className="hero-grid">
      <div>
+      <div className="availability" style={{marginBottom:22}}>Open to Internships, Freelance & Collaborations</div>
       <Eyebrow>Developer · Automation builder · Security learner</Eyebrow>
       <h1 className="display hero-title" style={{margin:"30px 0"}}>Curious by nature.<br/> <span className="highlight">Builder</span> by choice.</h1>
       <p className="hero-copy">I’m Nura — a Computer Science student who enjoys turning ideas into useful digital products, thoughtful web experiences, and practical automations.</p>
