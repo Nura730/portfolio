@@ -1,27 +1,25 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Nura | CSE Student – Aspiring Cybersecurity Engineer",
+  title: "Arun — Developer, Automation Builder & Cybersecurity Enthusiast",
   description:
-    "CSE student learning cybersecurity through real systems, automation, and hands-on web development.",
-
+    "Arun builds digital products, intelligent automations and secure systems. Explore selected software projects, technical skills and current learning.",
+  metadataBase: new URL("https://nuraportfolio.vercel.app"),
   openGraph: {
-    title: "Nura Portfolio",
+    title: "Arun — Developer & Builder",
     description:
-      "Cybersecurity learner & automation builder. Real projects, real skills.",
-    url: "https://nuraportfolio12.vercel.app/", // change later
-    siteName: "Nura Portfolio",
-    locale: "en_US",
-    type: "website",
-  },
+      "Selected software projects across healthcare, manufacturing, automation and environmental monitoring.",
+    url: "https://nuraportfolio.vercel.app",
+    siteName: "Arun Portfolio",
+    locale: "en_IN",
+    type: "website"
+  }
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-black text-slate-100 antialiased">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
