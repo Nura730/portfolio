@@ -1,8 +1,10 @@
 "use client";
 
 import {
+  Activity,
   ArrowDownRight,
   ArrowUpRight,
+  BriefcaseBusiness,
   Check,
   Code2,
   Database,
@@ -198,7 +200,8 @@ export default function Page() {
           <a href="#work">Work</a>
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
-          <a href="#journey">Journey</a>
+          <a href="#internship">Internship</a>
+          <a href="#github">GitHub</a>
           <a className="nav-contact" href="#contact">Let’s talk <ArrowUpRight size={13} /></a>
         </div>
       </nav>
@@ -409,10 +412,70 @@ export default function Page() {
         </div>
       </section>
 
+      <section id="internship" className="site-shell section-pad internship-section">
+        <Reveal className="section-heading">
+          <div>
+            <Eyebrow>06 / Internship focus</Eyebrow>
+            <h2 className="section-title">Ready to contribute.<br /><span className="title-accent">Eager to learn.</span></h2>
+          </div>
+          <p className="section-lead">I’m looking for an internship where I can contribute to real engineering work, learn from an experienced team and turn a solid technical foundation into practical impact.</p>
+        </Reveal>
+        <Reveal className="internship-panel">
+          <div className="internship-intro">
+            <div className="internship-status"><span />Open to internship opportunities</div>
+            <h3>Curiosity backed<br />by hands-on work.</h3>
+            <p>I bring a builder’s mindset, a willingness to learn and experience developing projects across interfaces, backend workflows and connected systems.</p>
+            <a className="internship-link" href="mailto:arunshanmugavel12@gmail.com">Discuss an opportunity <ArrowUpRight size={15} /></a>
+          </div>
+          <div className="internship-focus-list">
+            <div className="internship-focus-item">
+              <span>01</span><div><strong>Software development</strong><p>Frontend and full-stack tasks, responsive interfaces, APIs and application features.</p></div><Code2 size={19} />
+            </div>
+            <div className="internship-focus-item">
+              <span>02</span><div><strong>Automation & AI workflows</strong><p>Connecting tools, streamlining repeated tasks and exploring useful AI-assisted workflows.</p></div><Activity size={19} />
+            </div>
+            <div className="internship-focus-item">
+              <span>03</span><div><strong>Systems & security</strong><p>Learning how applications and infrastructure behave, with an interest in secure-by-design thinking.</p></div><BriefcaseBusiness size={19} />
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      <section id="github" className="site-shell section-pad github-section">
+        <Reveal className="section-heading">
+          <div>
+            <Eyebrow>07 / GitHub activity</Eyebrow>
+            <h2 className="section-title">A little code.<br /><span className="title-accent">Every day.</span></h2>
+          </div>
+          <p className="section-lead">A public snapshot of my coding activity and the projects I’m building, exploring and improving.</p>
+        </Reveal>
+        <Reveal className="github-panel">
+          <div className="github-panel-top">
+            <div>
+              <span className="github-kicker">CONTRIBUTION HISTORY</span>
+              <h3>@Nura730</h3>
+              <p>Consistency is built one commit, experiment and improvement at a time.</p>
+            </div>
+            <a className="github-profile-link" href="https://github.com/Nura730" target="_blank" rel="noreferrer">View GitHub profile <ArrowUpRight size={15} /></a>
+          </div>
+          <div className="github-chart-wrap">
+            <img
+              src="https://ghchart.rshah.org/496b45/Nura730"
+              alt="GitHub contribution calendar for Nura730"
+              loading="lazy"
+            />
+          </div>
+          <div className="github-bottom">
+            <span><i />Contribution calendar · public GitHub activity</span>
+            <a href="https://github.com/Nura730?tab=repositories" target="_blank" rel="noreferrer">Browse repositories <Github size={14} /></a>
+          </div>
+        </Reveal>
+      </section>
+
       <section id="contact" className="site-shell contact-section">
         <Reveal className="contact-panel">
           <div className="contact-main">
-            <Eyebrow light>06 / Have a project in mind?</Eyebrow>
+            <Eyebrow light>08 / Have a project in mind?</Eyebrow>
             <h2 className="contact-title">Let’s make<br /><span>something useful.</span></h2>
             <p>I’m open to internships, freelance projects, collaborations and thoughtful conversations about technology. Have an idea? Let’s talk.</p>
             <a className="contact-email" href="mailto:arunshanmugavel12@gmail.com">arunshanmugavel12@gmail.com <ArrowUpRight size={16} /></a>
