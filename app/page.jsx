@@ -1,161 +1,444 @@
 "use client";
 
-import { ArrowDownRight, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+import {
+  ArrowDownRight,
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  Code2,
+  Database,
+  Github,
+  Layers3,
+  Linkedin,
+  Mail,
+  MapPin,
+  ShieldCheck,
+  Sparkles,
+  TerminalSquare,
+  Workflow
+} from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 
 const projects = [
   {
-    n:"01",
-    name:"MediOrchestra",
-    type:"Healthcare · Hospital operations",
-    desc:"A role-based hospital command system connecting patients, care teams, and operating theatres. It brings together live request workflows, capacity forecasting, surge simulation, and an ICU-risk model.",
-    tech:["React","Node.js","PostgreSQL","Socket.IO","LightGBM"],
-    visual:"hospital",
-    visualLabel:"MEDIORCHESTRA",
-    visualCode:"CARE / FLOW",
-    visualKicker:"HOSPITAL COMMAND SYSTEM",
-    visualTitle:"Care teams, in sync.",
-    visualChips:["5 role workspaces","ICU risk model","Capacity outlook"],
-    visualFooter:"Patient flow · OT coordination · Forecasting",
-    live:"https://hospital-orchestrator-phi.vercel.app",
-    code:"https://github.com/Nura730/hospital-orchestrator"
+    n: "01",
+    name: "MediOrchestra",
+    category: "Healthcare · Hospital operations",
+    description:
+      "A role-based hospital command system that connects patients, doctors, nurses and operating-theatre teams. It brings requests, care coordination and hospital-flow intelligence into one shared experience.",
+    stack: ["React", "Node.js", "PostgreSQL", "Socket.IO", "LightGBM"],
+    visual: "hospital",
+    label: "MEDIORCHESTRA",
+    code: "CARE / FLOW",
+    kicker: "HOSPITAL COMMAND SYSTEM",
+    statement: "Care teams, in sync.",
+    chips: ["5 role workspaces", "ICU risk model", "Capacity outlook"],
+    footnote: "Patient flow · OT coordination · Forecasting",
+    live: "https://hospital-orchestrator-phi.vercel.app",
+    source: "https://github.com/Nura730/hospital-orchestrator"
   },
   {
-    n:"02",
-    name:"Everest Textile Mills",
-    type:"Industry · Manufacturing operations",
-    desc:"An end-to-end textile mill platform connecting yarn inventory, order planning, production, machine operations, quality checks, dispatch, invoicing, and costing—with offline sync and live updates.",
-    tech:["React","Node.js","MongoDB","Socket.IO","Dexie"],
-    visual:"everest",
-    visualLabel:"EVEREST TEXTILE MILLS",
-    visualCode:"MILL / OPS",
-    visualKicker:"MANUFACTURING OPERATIONS",
-    visualTitle:"From yarn to dispatch.",
-    visualChips:["Inventory & orders","Production & QC","Costing & audit"],
-    visualFooter:"17 documented implementation phases",
-    live:"https://everest-textile-mills.vercel.app",
-    code:"https://github.com/Nura730/everest_textile_mills"
+    n: "02",
+    name: "Everest Textile Mills",
+    category: "Industry · Manufacturing operations",
+    description:
+      "An end-to-end textile mill platform connecting yarn inventory, order planning, production, machine operations, quality checks, dispatch, invoicing and costing—with offline sync and live updates.",
+    stack: ["React", "Node.js", "MongoDB", "Socket.IO", "Dexie"],
+    visual: "everest",
+    label: "EVEREST TEXTILE MILLS",
+    code: "MILL / OPS",
+    kicker: "MANUFACTURING OPERATIONS",
+    statement: "From yarn to dispatch.",
+    chips: ["Inventory & orders", "Production & QC", "Costing & audit"],
+    footnote: "17 documented implementation phases",
+    live: "https://everest-textile-mills.vercel.app",
+    source: "https://github.com/Nura730/everest_textile_mills"
   },
   {
-    n:"03",
-    name:"NeerWatch",
-    type:"Public welfare · Environmental monitoring",
-    desc:"An offline-first water-quality monitoring prototype for field teams to record household tests, synchronize observations when connected, detect location-based clusters, and surface ward-level alerts.",
-    tech:["React","Node.js","MongoDB","Leaflet","Dexie"],
-    visual:"neerwatch",
-    visualLabel:"NEERWATCH",
-    visualCode:"FIELD / SIGNAL",
-    visualKicker:"WATER QUALITY MONITORING",
-    visualTitle:"Local signals. Clearer action.",
-    visualChips:["Offline-first capture","Spatial clusters","Ward-level alerts"],
-    visualFooter:"Prototype · Synthetic demonstration data",
-    note:"Prototype data is synthetic and is not a record of real-world water quality.",
-    live:"https://neerwatch.vercel.app",
-    code:"https://github.com/Nura730/neerwatch"
+    n: "03",
+    name: "NeerWatch",
+    category: "Public welfare · Environmental monitoring",
+    description:
+      "An offline-first water-quality monitoring prototype for field teams to record household tests, sync observations when connected, detect location-based clusters and surface ward-level alerts.",
+    stack: ["React", "Node.js", "MongoDB", "Leaflet", "Dexie"],
+    visual: "neerwatch",
+    label: "NEERWATCH",
+    code: "FIELD / SIGNAL",
+    kicker: "WATER QUALITY MONITORING",
+    statement: "Local signals. Clearer action.",
+    chips: ["Offline-first capture", "Spatial clusters", "Ward-level alerts"],
+    footnote: "Prototype · Synthetic demonstration data",
+    note: "NeerWatch currently uses synthetic demonstration data. It is not a record of real-world water quality.",
+    live: "https://neerwatch.vercel.app",
+    source: "https://github.com/Nura730/neerwatch"
   }
 ];
 
-const labs = [
- ["Linux Practice","Commands, permissions, users, processes, and system navigation.","Beginner"],
- ["TryHackMe Labs","Learning cybersecurity fundamentals, basic attack paths, and defense concepts.","Beginner"],
- ["Python Scripts","Writing small automation and utility scripts to improve problem solving.","Learning"],
- ["Automation Workflows","Building practical workflows with n8n and Google Apps Script.","Intermediate"]
+const skillGroups = [
+  {
+    number: "01",
+    title: "Frontend development",
+    icon: Code2,
+    summary: "Turning ideas into clear, responsive interfaces.",
+    items: ["HTML & CSS", "JavaScript", "React", "Next.js", "TypeScript", "Tailwind CSS"]
+  },
+  {
+    number: "02",
+    title: "Backend & databases",
+    icon: Database,
+    summary: "Connecting interfaces to useful data and application logic.",
+    items: ["Node.js", "Express.js", "REST APIs", "PostgreSQL", "MongoDB", "MySQL"]
+  },
+  {
+    number: "03",
+    title: "Automation",
+    icon: Workflow,
+    summary: "Reducing repetitive work with connected tools and workflows.",
+    items: ["n8n", "Google Apps Script", "Workflow design", "API integrations"]
+  },
+  {
+    number: "04",
+    title: "Systems & security",
+    icon: ShieldCheck,
+    summary: "Understanding the systems behind the interface.",
+    items: ["Linux", "Git & GitHub", "Web security fundamentals", "TryHackMe labs"]
+  }
+];
+
+const learning = [
+  {
+    title: "Linux practice",
+    detail: "Working with commands, permissions, users, processes and system navigation.",
+    label: "HANDS-ON"
+  },
+  {
+    title: "TryHackMe labs",
+    detail: "Learning cybersecurity fundamentals through guided, practical exercises.",
+    label: "PRACTICE"
+  },
+  {
+    title: "Python experiments",
+    detail: "Writing small scripts and utilities while strengthening problem-solving skills.",
+    label: "EXPLORING"
+  },
+  {
+    title: "Automation workflows",
+    detail: "Building practical workflows with n8n and Google Apps Script.",
+    label: "BUILDING"
+  }
 ];
 
 const milestones = [
- ["Building with Artificial Intelligence","Saylor.org","Completed","https://drive.google.com/file/d/1ZLK0CS_ric6l8SFMp2nEaK_TpGtwyU6B/view?usp=sharing"],
- ["Cybersecurity Fundamentals","Self learning","Currently learning",""],
- ["Linux Basics","Self practice","Currently learning",""]
+  {
+    title: "Building with Artificial Intelligence",
+    source: "Saylor Academy",
+    status: "Completed",
+    link: "https://drive.google.com/file/d/1ZLK0CS_ric6l8SFMp2nEaK_TpGtwyU6B/view?usp=sharing"
+  },
+  {
+    title: "Cybersecurity fundamentals",
+    source: "Independent learning",
+    status: "In progress"
+  },
+  {
+    title: "Linux fundamentals",
+    source: "Hands-on practice",
+    status: "In progress"
+  }
 ];
-const planned = ["TryHackMe Learning Paths","Python Automation Certification","Networking Fundamentals","Ethical Hacking Basics"];
 
 const journey = [
- ["2022","The first web experiments","Started learning HTML and CSS, building small layouts and exploring how the web works."],
- ["2024","Computer Science Engineering","Started a CSE degree and built a stronger foundation in programming and problem solving."],
- ["2025","Building for real use","Moved from practice projects to complete websites, automation workflows, client work, and an internship."],
- ["2026","Security & systems","Deepening my understanding of cybersecurity through Linux, hands-on labs, and security fundamentals."]
+  {
+    year: "2022",
+    title: "The first web experiments",
+    detail: "Started exploring HTML and CSS, building small layouts and learning how the web works."
+  },
+  {
+    year: "2024",
+    title: "A stronger computing foundation",
+    detail: "Began a Computer Science Engineering degree and developed a broader programming foundation."
+  },
+  {
+    year: "2025",
+    title: "From practice to real projects",
+    detail: "Worked on complete websites, client projects and workflow automations, with hands-on professional experience."
+  },
+  {
+    year: "2026",
+    title: "Systems, scale & security",
+    detail: "Focused on larger software systems while deepening practical knowledge of Linux and cybersecurity."
+  }
 ];
 
-function Eyebrow({children}) { return <p className="eyebrow">{children}</p>; }
+function Eyebrow({ children, light = false }) {
+  return <p className={light ? "eyebrow eyebrow--light" : "eyebrow"}>{children}</p>;
+}
+
+function Reveal({ children, className = "", delay = 0, once = true }) {
+  const reduceMotion = useReducedMotion();
+  return (
+    <motion.div
+      className={className}
+      initial={reduceMotion ? false : { opacity: 0, y: 26 }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once, amount: 0.14 }}
+      transition={{ duration: 0.68, delay, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export default function Page() {
- return <main>
-   <nav className="nav-pill" aria-label="Main navigation">
-     <a href="#top" style={{fontFamily:"Manrope",fontWeight:800,letterSpacing:".12em"}}>ARUN</a><a href="#work">Work</a><a href="#about">About</a><a href="#journey">Journey</a><a href="#labs">Practice</a><a href="#contact">Contact ↗</a>
-   </nav>
-   <header id="top" className="site-shell">
-    <div className="hero-grid">
-     <div>
-      <div className="availability" style={{marginBottom:22}}>Open to Internships, Freelance & Collaborations</div>
-      <Eyebrow>Developer · Automation builder · Security learner</Eyebrow>
-      <h1 className="display hero-title" style={{margin:"30px 0"}}>Building<br/><span className="highlight">Digital Products</span>,<br/>Intelligent<br/>Automations &amp;<br/>Secure Systems.</h1>
-      <p className="hero-copy">I’m Nura — a Computer Science student who enjoys turning ideas into useful digital products, thoughtful web experiences, and practical automations.</p>
-      <div style={{display:"flex",alignItems:"center",gap:24,flexWrap:"wrap",marginTop:34}}>
-       <a className="btn-dark" href="#work">Explore selected work <ArrowDownRight size={16}/></a>
-       <a className="btn-line" href="/resume.pdf" target="_blank" rel="noreferrer">View résumé <ArrowUpRight size={14}/></a>
-      </div>
-      <div style={{display:"flex",gap:20,marginTop:34}}>
-       <a href="https://github.com/Nura730" aria-label="GitHub" target="_blank" rel="noreferrer"><Github size={19}/></a>
-       <a href="https://www.linkedin.com/in/arun-shanmugavel-a6249b321" aria-label="LinkedIn" target="_blank" rel="noreferrer"><Linkedin size={19}/></a>
-       <a href="mailto:arunshanmugavel12@gmail.com" aria-label="Email"><Mail size={19}/></a>
-      </div>
-     </div>
-     <div className="profile-frame"><img src="/arun-profile.webp" alt="Portrait of Nura"/></div>
-    </div>
-    <div className="intro-strip"><span>Based in Tamil Nadu, India</span><span>Frontend · Automation · Cybersecurity</span><span>Open to internships & collaborations ↗</span></div>
-   </header>
+  const reduceMotion = useReducedMotion();
 
-   <section id="work" className="site-shell section-pad">
-    <div className="section-heading"><div><Eyebrow>01 / Selected work</Eyebrow><h2 className="section-title" style={{marginTop:18}}>Things I’ve<br/>put into the world.</h2></div><p className="hero-copy" style={{maxWidth:330,fontSize:13}}>Three systems built around real workflows—from hospital coordination to manufacturing operations and field-level monitoring.</p></div>
-    <div>{projects.map(p=><article className="project-row" key={p.n}>
-     <a className={`project-image project-art project-art--${p.visual}`} href={p.live||p.code} target="_blank" rel="noreferrer" aria-label={`Open ${p.name} project`}>
-      <div className="project-art-top"><span>{p.visualLabel}</span><span>{p.visualCode}</span></div>
-      <div className="project-art-mid"><span className="project-art-kicker">{p.visualKicker}</span><h3 className="project-art-title">{p.visualTitle}</h3><div className="project-art-chips">{p.visualChips.map(t=><span key={t}>{t}</span>)}</div></div>
-      <div className="project-art-footer"><span>{p.visualFooter}</span><ArrowUpRight size={18}/></div>
-     </a>
-     <div><span className="project-number">{p.n} / {p.type}</span><h3 className="project-name">{p.name}</h3><p className="project-desc">{p.desc}</p>{p.note ? <p className="project-note">{p.note}</p> : null}<div>{p.tech.map(t=><span className="tag" key={t}>{t}</span>)}</div><div><a className="text-link" href={p.live} target="_blank" rel="noreferrer">Open project <ArrowUpRight size={14}/></a><a className="text-link" href={p.code} target="_blank" rel="noreferrer">Source code <Github size={14}/></a></div></div>
-    </article>)}</div>
-   </section>
+  return (
+    <main>
+      <nav className="nav-pill" aria-label="Main navigation">
+        <a className="nav-brand" href="#top">ARUN<span>®</span></a>
+        <div className="nav-links">
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#journey">Journey</a>
+          <a className="nav-contact" href="#contact">Let’s talk <ArrowUpRight size={13} /></a>
+        </div>
+      </nav>
 
-   <section id="about" className="site-shell">
-    <div className="about-panel">
-     <div><Eyebrow>02 / A little about me</Eyebrow><p className="eyebrow" style={{marginTop:65}}>Always learning.<br/>Always making.</p></div>
-     <div><h2 className="about-quote">I like understanding how things work — then finding ways to make them work better.</h2><p className="about-copy" style={{marginTop:28}}>My interests sit at the intersection of software, systems, and security. I enjoy building interfaces, connecting tools through automation, and learning how to make digital systems more reliable. I learn best by building, testing, breaking things safely, and improving them.</p><p className="about-copy" style={{marginTop:14}}>Outside a screen, I’m usually collecting ideas for the next thing to build.</p></div>
-    </div>
-   </section>
+      <header id="top" className="site-shell hero">
+        <div className="hero-grid">
+          <motion.div
+            className="hero-content"
+            initial={reduceMotion ? false : { opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="availability"><span className="availability-dot" />Open to internships, freelance & collaborations</div>
+            <Eyebrow>Developer · Automation builder · Cybersecurity enthusiast</Eyebrow>
+            <h1 className="display hero-title">
+              Building <span className="highlight">digital products</span>, intelligent automations & secure systems.
+            </h1>
+            <p className="hero-copy hero-intro">
+              I build web applications, develop intelligent automation workflows, and explore cybersecurity to create practical digital solutions. Through personal projects, client collaborations, and hands-on experience, I experiment with technologies, solve real-world problems, and turn ideas into working products.
+            </p>
+            <div className="hero-actions">
+              <a className="btn-dark" href="#work">Explore my work <ArrowDownRight size={16} /></a>
+              <a className="btn-line" href="#contact">Let’s connect <ArrowUpRight size={15} /></a>
+            </div>
+            <div className="hero-socials">
+              <a href="https://github.com/Nura730" aria-label="GitHub" target="_blank" rel="noreferrer"><Github size={18} /></a>
+              <a href="https://www.linkedin.com/in/arun-shanmugavel-a6249b321" aria-label="LinkedIn" target="_blank" rel="noreferrer"><Linkedin size={18} /></a>
+              <a href="mailto:arunshanmugavel12@gmail.com" aria-label="Email"><Mail size={18} /></a>
+            </div>
+          </motion.div>
 
-   <section className="site-shell section-pad">
-    <div className="section-heading"><div><Eyebrow>03 / Toolset</Eyebrow><h2 className="section-title" style={{marginTop:18}}>What I work with.</h2></div></div>
-    <div className="skill-grid">
-     {[
-      ["01 / FRONTEND","HTML · CSS · JavaScript · React · Next.js"],
-      ["02 / PROGRAMMING","JavaScript · TypeScript · Kotlin · Python"],
-      ["03 / AUTOMATION","n8n · Google Apps Script · Workflow design"],
-      ["04 / SYSTEMS","Linux · Git · GitHub · Web fundamentals"],
-      ["05 / DATABASES","MySQL · SQL"],
-      ["06 / DESIGN","Responsive UI · Tailwind CSS · Figma"],
-      ["07 / SECURITY","Linux labs · Web security fundamentals"],
-      ["08 / PRACTICE","Debugging · Documentation · Iteration"]
-     ].map(([label,value])=><div className="skill-cell" key={label}><span>{label}</span>{value}</div>)}
-    </div>
-   </section>
+          <motion.div
+            className="hero-visual"
+            initial={reduceMotion ? false : { opacity: 0, scale: 0.96, y: 18 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.95, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="hero-photo-frame">
+              <img src="/arun-profile.webp" alt="Portrait of Arun" />
+              <div className="photo-index">ARUN · DEVELOPER</div>
+            </div>
+            <div className="hero-orbit hero-orbit--one" />
+            <div className="hero-orbit hero-orbit--two" />
+            <div className="hero-side-note">CURIOUS BY NATURE<br />BUILDER BY CHOICE</div>
+            <div className="hero-sticker"><Sparkles size={18} /><span>Ideas into<br />interfaces & systems</span></div>
+          </motion.div>
+        </div>
 
-   <section id="labs" className="site-shell section-pad">
-    <div className="section-heading"><div><Eyebrow>04 / Curiosity in practice</Eyebrow><h2 className="section-title" style={{marginTop:18}}>Learning by doing.</h2></div><p className="hero-copy" style={{maxWidth:330,fontSize:13}}>A snapshot of the skills and systems I’m actively exploring. Progress is a practice, not a percentage.</p></div>
-    <div className="skill-grid" style={{gridTemplateColumns:"repeat(2,1fr)"}}>{labs.map(([title,desc,level])=><div className="skill-cell" key={title}><span>{level.toUpperCase()} / PRACTICE</span><strong style={{fontFamily:"Manrope",fontSize:18,letterSpacing:"-.04em"}}>{title}</strong><p className="project-desc" style={{marginTop:10}}>{desc}</p></div>)}</div>
-    <div style={{paddingTop:70}}><Eyebrow>Learning milestones</Eyebrow><h3 className="section-title" style={{fontSize:"clamp(30px,4vw,48px)",marginTop:14,marginBottom:28}}>Proof of progress.</h3>
-     <div className="journey-list">{milestones.map(([title,platform,status,link])=><div className="journey-item" key={title}><span className="eyebrow">{status}</span><h4 style={{fontFamily:"Manrope",fontSize:16,margin:0}}>{title}</h4><p>{platform}{link ? <> · <a href={link} target="_blank" rel="noreferrer" style={{textDecoration:"underline"}}>View certificate ↗</a></> : null}</p></div>)}</div>
-     <p className="eyebrow" style={{marginTop:28}}>Next up · {planned.join(" · ")}</p>
-    </div>
-   </section>
+        <motion.div
+          className="intro-strip"
+          initial={reduceMotion ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.45 }}
+        >
+          <span><MapPin size={13} />Tamil Nadu, India</span>
+          <span>Frontend · Backend · Automation · Cybersecurity</span>
+          <a href="#contact">Available to build together <ArrowUpRight size={13} /></a>
+        </motion.div>
+      </header>
 
-   <section id="journey" className="site-shell section-pad">
-    <div className="section-heading"><div><Eyebrow>05 / The journey</Eyebrow><h2 className="section-title" style={{marginTop:18}}>A work in progress.</h2></div></div>
-    <div className="journey-list">{journey.map(([year,title,desc])=><div className="journey-item" key={year}><span className="eyebrow">{year}</span><h3 style={{fontFamily:"Manrope",fontSize:18,letterSpacing:"-.04em",margin:0}}>{title}</h3><p>{desc}</p></div>)}</div>
-   </section>
+      <section id="work" className="site-shell section-pad">
+        <Reveal className="section-heading">
+          <div>
+            <Eyebrow>01 / Selected work</Eyebrow>
+            <h2 className="section-title">Built around<br /><span className="title-accent">real workflows.</span></h2>
+          </div>
+          <p className="section-lead">Three systems exploring different problems—from coordinating hospital care to managing manufacturing operations and monitoring water quality.</p>
+        </Reveal>
 
-   <section id="contact" className="site-shell">
-    <div className="contact-panel"><div><Eyebrow>06 / Have a good one in mind?</Eyebrow><h2 className="section-title" style={{marginTop:25}}>Let’s make<br/>something useful.</h2><p style={{marginTop:24,maxWidth:440,lineHeight:1.8}}>I’m open to internships, freelance projects, collaborations, and conversations about technology.</p></div><div><a className="btn-dark" style={{background:"var(--accent)",color:"var(--ink)"}} href="mailto:arunshanmugavel12@gmail.com">Start a conversation <ArrowUpRight size={16}/></a><p style={{fontSize:12,marginTop:22}}>arunshanmugavel12@gmail.com</p><div style={{display:"flex",gap:18,marginTop:17}}><a href="https://github.com/Nura730" target="_blank" rel="noreferrer"><Github size={18}/></a><a href="https://www.linkedin.com/in/arun-shanmugavel-a6249b321" target="_blank" rel="noreferrer"><Linkedin size={18}/></a></div></div></div>
-   </section>
-   <footer className="site-shell"><div className="footer-row"><span>© {new Date().getFullYear()} Nura · Made with intent.</span><span>Curiosity over comfort.</span><a href="#top">Back to top ↑</a></div></footer>
- </main>;
+        <div className="project-list">
+          {projects.map((project, index) => (
+            <Reveal key={project.n} className="project-row" delay={index * 0.06}>
+              <motion.a
+                className={`project-art project-art--${project.visual}`}
+                href={project.live}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Open ${project.name} live demo`}
+                whileHover={reduceMotion ? undefined : { y: -6 }}
+                transition={{ duration: 0.28 }}
+              >
+                <div className="project-art-top"><span>{project.label}</span><span>{project.code}</span></div>
+                <div className="project-art-mid">
+                  <span className="project-art-kicker">{project.kicker}</span>
+                  <h3 className="project-art-title">{project.statement}</h3>
+                  <div className="project-art-chips">{project.chips.map(chip => <span key={chip}>{chip}</span>)}</div>
+                </div>
+                <div className="project-art-footer"><span>{project.footnote}</span><ArrowUpRight size={18} /></div>
+              </motion.a>
+
+              <div className="project-copy">
+                <span className="project-number">{project.n} <span>/</span> {project.category}</span>
+                <h3 className="project-name">{project.name}</h3>
+                <p className="project-desc">{project.description}</p>
+                {project.note ? <p className="project-note"><span>NOTE</span>{project.note}</p> : null}
+                <div className="project-tags">{project.stack.map(item => <span className="tag" key={item}>{item}</span>)}</div>
+                <div className="project-links">
+                  <a className="text-link" href={project.live} target="_blank" rel="noreferrer">Live preview <ArrowUpRight size={14} /></a>
+                  <a className="text-link" href={project.source} target="_blank" rel="noreferrer">Source code <Github size={14} /></a>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal className="work-footnote">
+          <span>More experiments are in progress.</span>
+          <a href="https://github.com/Nura730" target="_blank" rel="noreferrer">Explore GitHub <ArrowUpRight size={14} /></a>
+        </Reveal>
+      </section>
+
+      <section id="about" className="site-shell about-section">
+        <Reveal className="about-panel">
+          <div className="about-side">
+            <Eyebrow>02 / A little about me</Eyebrow>
+            <span className="about-side-note">ALWAYS LEARNING.<br />ALWAYS MAKING.</span>
+            <div className="about-mark">A<span>.</span></div>
+          </div>
+          <div className="about-main">
+            <h2 className="about-quote">I like understanding how things work — then finding ways to make them work <span>better.</span></h2>
+            <p className="about-copy">I’m Arun. My interests sit at the intersection of software development, automation and cybersecurity. I enjoy taking an idea, understanding the problem behind it, and shaping it into something people can actually use.</p>
+            <p className="about-copy">I learn by building, testing, debugging and improving. Whether I’m designing an interface, connecting tools into a workflow or exploring how systems behave, I’m drawn to work that combines curiosity with practical problem-solving.</p>
+            <div className="about-signoff"><span>My approach</span><strong>Stay curious. Build thoughtfully. Keep improving.</strong></div>
+          </div>
+        </Reveal>
+      </section>
+
+      <section id="skills" className="site-shell section-pad">
+        <Reveal className="section-heading">
+          <div>
+            <Eyebrow>03 / Skills & tools</Eyebrow>
+            <h2 className="section-title">The tools behind<br /><span className="title-accent">the work.</span></h2>
+          </div>
+          <p className="section-lead">A practical toolkit across interface development, backend systems, automation and security fundamentals—growing through projects and continued learning.</p>
+        </Reveal>
+        <div className="skill-grid">
+          {skillGroups.map((group, index) => {
+            const Icon = group.icon;
+            return (
+              <Reveal className="skill-card" key={group.number} delay={index * 0.05}>
+                <div className="skill-card-top"><span>{group.number} / AREA</span><Icon size={21} strokeWidth={1.6} /></div>
+                <h3>{group.title}</h3>
+                <p>{group.summary}</p>
+                <div className="skill-items">{group.items.map(item => <span key={item}>{item}</span>)}</div>
+              </Reveal>
+            );
+          })}
+        </div>
+        <Reveal className="skills-note">
+          <Layers3 size={17} />
+          <p><strong>Also exploring:</strong> Python, Kotlin, AI-assisted workflows and deeper web-security concepts.</p>
+        </Reveal>
+      </section>
+
+      <section id="practice" className="site-shell section-pad practice-section">
+        <Reveal className="section-heading">
+          <div>
+            <Eyebrow>04 / Learning in practice</Eyebrow>
+            <h2 className="section-title">Keep learning.<br /><span className="title-accent">Keep testing.</span></h2>
+          </div>
+          <p className="section-lead">Technology moves quickly. I keep strengthening the fundamentals through guided labs, small experiments and hands-on practice.</p>
+        </Reveal>
+        <div className="learning-grid">
+          {learning.map((item, index) => (
+            <Reveal className="learning-card" key={item.title} delay={index * 0.05}>
+              <div className="learning-card-top"><span>{item.label}</span><span>0{index + 1}</span></div>
+              <h3>{item.title}</h3>
+              <p>{item.detail}</p>
+              <div className="learning-arrow"><ArrowUpRight size={17} /></div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal className="milestones-block">
+          <div className="milestones-heading">
+            <div><Eyebrow>Learning milestones</Eyebrow><h3>Progress, not percentages.</h3></div>
+            <p>Courses and topics that are part of my ongoing learning path.</p>
+          </div>
+          <div className="milestone-list">
+            {milestones.map((item, index) => (
+              <div className="milestone-row" key={item.title}>
+                <span className="milestone-index">0{index + 1}</span>
+                <div className="milestone-name"><strong>{item.title}</strong><span>{item.source}</span></div>
+                <span className={item.status === "Completed" ? "milestone-status is-complete" : "milestone-status"}>{item.status === "Completed" ? <Check size={13} /> : null}{item.status}</span>
+                {item.link ? <a href={item.link} target="_blank" rel="noreferrer" aria-label={`View ${item.title} certificate`}><ArrowUpRight size={16} /></a> : <span className="milestone-placeholder" />}
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      <section id="journey" className="site-shell section-pad">
+        <Reveal className="section-heading">
+          <div>
+            <Eyebrow>05 / The journey</Eyebrow>
+            <h2 className="section-title">A work in<br /><span className="title-accent">progress.</span></h2>
+          </div>
+          <p className="section-lead">A few milestones in how my interests have grown—from first web experiments to building larger systems and exploring security.</p>
+        </Reveal>
+        <div className="journey-list">
+          {journey.map((item, index) => (
+            <Reveal className="journey-item" key={item.year} delay={index * 0.04}>
+              <span className="journey-year">{item.year}</span>
+              <h3>{item.title}</h3>
+              <p>{item.detail}</p>
+              <span className="journey-dot" />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section id="contact" className="site-shell contact-section">
+        <Reveal className="contact-panel">
+          <div className="contact-main">
+            <Eyebrow light>06 / Have a project in mind?</Eyebrow>
+            <h2 className="contact-title">Let’s make<br /><span>something useful.</span></h2>
+            <p>I’m open to internships, freelance projects, collaborations and thoughtful conversations about technology. Have an idea? Let’s talk.</p>
+            <a className="contact-email" href="mailto:arunshanmugavel12@gmail.com">arunshanmugavel12@gmail.com <ArrowUpRight size={16} /></a>
+          </div>
+          <div className="contact-aside">
+            <span className="contact-aside-label">START A CONVERSATION</span>
+            <a className="contact-button" href="mailto:arunshanmugavel12@gmail.com">Get in touch <ArrowUpRight size={17} /></a>
+            <div className="contact-socials">
+              <a href="https://github.com/Nura730" target="_blank" rel="noreferrer"><Github size={18} /> GitHub</a>
+              <a href="https://www.linkedin.com/in/arun-shanmugavel-a6249b321" target="_blank" rel="noreferrer"><Linkedin size={18} /> LinkedIn</a>
+            </div>
+          </div>
+          <span className="contact-watermark">ARUN</span>
+        </Reveal>
+      </section>
+
+      <footer className="site-shell footer">
+        <div className="footer-row">
+          <a className="footer-brand" href="#top">ARUN<span>®</span></a>
+          <span>Built with curiosity & intention.</span>
+          <a href="#top">Back to top <ArrowUpRight size={13} /></a>
+        </div>
+        <div className="footer-bottom"><span>© {new Date().getFullYear()} Arun Shanmugavel</span><span>Frontend · Automation · Cybersecurity</span></div>
+      </footer>
+    </main>
+  );
 }
