@@ -2,7 +2,6 @@
 
 import {
   ArrowDownRight,
-  ArrowRight,
   ArrowUpRight,
   Check,
   Code2,
@@ -14,7 +13,6 @@ import {
   MapPin,
   ShieldCheck,
   Sparkles,
-  TerminalSquare,
   Workflow
 } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
